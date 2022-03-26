@@ -6,7 +6,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String name, nim;
+        boolean isExit = false;
+
+        while (!isExit) {
+            isExit = runProgram();
+        }
+
+        System.exit(0);
+    }
+
+    private static boolean runProgram() {
+        String name, nim, choose;
         int number;
 
         Scanner input = new Scanner(System.in);
@@ -16,7 +26,7 @@ public class Main {
 
         if (name.length() > 25) {
             System.out.println("\nMaaf, nama Anda terlalu panjang, maksimum 25 karakter!");
-            return;
+            return true;
         }
 
         System.out.print("Masukkan NIM Anda (10 Digit): ");
@@ -24,7 +34,7 @@ public class Main {
 
         if (nim.length() != 10) {
             System.out.print("\nMaaf, NIM yang Anda masukkan tidak valid!");
-            return;
+            return true;
         }
 
         System.out.println("\n##########################################################");
@@ -36,7 +46,7 @@ public class Main {
 
         if (number < 5 || number > 20) {
             System.out.print("\nMasukkan angka yang valid!");
-            return;
+            return true;
         }
 
         ArrayList<Integer> evenNumbers = new ArrayList<>();
@@ -68,5 +78,17 @@ public class Main {
         System.out.println("\n" + number + " Bilangan Fibonacci :");
         fibonacciNumbers.forEach(e -> System.out.print(e + " "));
         System.out.println("\nHasil Penjumlahan = " + fibonacciNumbers.stream().mapToInt(e -> e).sum());
+
+        System.out.print("\nAnda ingin mengulang [y/t] : ");
+        choose = input.next();
+        boolean isExit = !choose.equals("y");
+
+        if (!isExit) {
+            System.out.println("\n#############");
+            System.out.println("Restarting...");
+            System.out.println("#############\n");
+        }
+
+        return isExit;
     }
 }
