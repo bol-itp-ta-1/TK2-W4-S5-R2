@@ -1,53 +1,39 @@
 package com.binus.team1;
 
-// IMPORT AREA - SCANNER //
-
 import java.util.Scanner;
-
-// PUBLIC AREA CLASS //
 
 public class Main {
     public static void main(String[] args) {
+        String name, nim;
+        int number;
 
-// VARIABLE DECLARATION //
-
-        String Nama, NIM;
-        int Angka;
-
-// SCANNER INPUT //
-
-        Scanner keyboard=new Scanner(System.in);
-
-// KEYBOARD INPUT //
+        Scanner keyboard = new Scanner(System.in);
 
         System.out.print("Masukkan Nama Anda: ");
-        Nama = keyboard.nextLine();
+        name = keyboard.nextLine();
 
-        if (Nama.length() <= 25)
-        {
+        if (name.length() <= 25) {
             System.out.print("Masukkan NIM Anda (1o Digit): ");
-            NIM = keyboard.nextLine();
+            nim = keyboard.nextLine();
 
-            if (NIM.length() == 10)
-            {
+            if (nim.length() == 10) {
                 System.out.println("##########################################################");
-                System.out.println("Selamat datang " + Nama + " [NIM:" + NIM + "]");
+                System.out.println("Selamat datang " + name + " [NIM:" + nim + "]");
                 System.out.println("##########################################################");
                 System.out.print("Silakan pilih 1 angka antara 5-20: ");
 
-                // Agak bingung di sini, untuk validasi data nya
-                Angka = keyboard.nextInt();
-                if (Angka.length() >= 5 & (Angka.length() <= 20))
-                {//No 4-Selesai taruh di sini}
-                } else
+                number = keyboard.nextInt();
+
+                if (number >= 5 & (number <= 20)) {
+                } else {
                     System.out.print("Masukkan Angka yang valid!");
-
-            } else if (NIM.length() < 10 | NIM.length() > 10)
-
+                }
+            } else {
                 System.out.print("Masukkan NIM yang valid!");
-
-        } else if (Nama.length() > 25)
+            }
+        } else {
             System.out.println("Maaf, Nama Anda Terlalu Panjang");
+        }
 
     }
 }
