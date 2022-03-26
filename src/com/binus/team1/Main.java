@@ -1,5 +1,6 @@
 package com.binus.team1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -36,5 +37,27 @@ public class Main {
             System.out.print("\nMasukkan angka yang valid!");
             return;
         }
+
+        ArrayList<Integer> evenNumbers = new ArrayList<>();
+        for (int i = 1; evenNumbers.size() < number; i++) {
+            if (i % 2 == 0) {
+                evenNumbers.add(i);
+            }
+        }
+
+        System.out.println("\n" + number + " Bilangan Genap :");
+        evenNumbers.forEach(e -> System.out.print(e + " "));
+        System.out.println("\nHasil Penjumlahan = " + evenNumbers.stream().mapToInt(e -> e).sum());
+
+        ArrayList<Integer> oddNumbers = new ArrayList<>();
+        for (int i = 1; oddNumbers.size() < number; i++) {
+            if (i % 2 == 1) {
+                oddNumbers.add(i);
+            }
+        }
+
+        System.out.println("\n" + number + " Bilangan Ganjil :");
+        oddNumbers.forEach(e -> System.out.print(e + " "));
+        System.out.println("\nHasil Penjumlahan = " + oddNumbers.stream().mapToInt(e -> e).sum());
     }
 }
