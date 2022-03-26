@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        boolean isExit = false;
+        boolean isRestart = true;
 
-        while (!isExit) {
-            isExit = runProgram();
+        while (isRestart) {
+            isRestart = runProgram();
         }
 
         System.exit(0);
@@ -26,7 +26,7 @@ public class Main {
 
         if (name.length() > 25) {
             System.out.println("\nMaaf, nama Anda terlalu panjang, maksimum 25 karakter!");
-            return true;
+            return false;
         }
 
         System.out.print("Masukkan NIM Anda (10 Digit): ");
@@ -34,7 +34,7 @@ public class Main {
 
         if (nim.length() != 10) {
             System.out.print("\nMaaf, NIM yang Anda masukkan tidak valid!");
-            return true;
+            return false;
         }
 
         System.out.println("\n##########################################################");
@@ -46,7 +46,7 @@ public class Main {
 
         if (number < 5 || number > 20) {
             System.out.print("\nMasukkan angka yang valid!");
-            return true;
+            return false;
         }
 
         ArrayList<Integer> evenNumbers = new ArrayList<>();
@@ -81,14 +81,14 @@ public class Main {
 
         System.out.print("\nAnda ingin mengulang [y/t] : ");
         choose = input.next();
-        boolean isExit = !choose.equals("y");
+        boolean isRestart = choose.equals("y") || choose.equals("Y");
 
-        if (!isExit) {
+        if (isRestart) {
             System.out.println("\n#############");
             System.out.println("Restarting...");
             System.out.println("#############\n");
         }
 
-        return isExit;
+        return isRestart;
     }
 }
