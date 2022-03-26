@@ -1,6 +1,7 @@
 package com.binus.team1;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -59,5 +60,13 @@ public class Main {
         System.out.println("\n" + number + " Bilangan Ganjil :");
         oddNumbers.forEach(e -> System.out.print(e + " "));
         System.out.println("\nHasil Penjumlahan = " + oddNumbers.stream().mapToInt(e -> e).sum());
+
+        ArrayList<Integer> fibonacciNumbers = new ArrayList<>(List.of(1, 1));
+        for (int i = 2; i < number; i++) {
+            fibonacciNumbers.add(fibonacciNumbers.get(i - 1) + fibonacciNumbers.get(i - 2));
+        }
+        System.out.println("\n" + number + " Bilangan Fibonacci :");
+        fibonacciNumbers.forEach(e -> System.out.print(e + " "));
+        System.out.println("\nHasil Penjumlahan = " + fibonacciNumbers.stream().mapToInt(e -> e).sum());
     }
 }
